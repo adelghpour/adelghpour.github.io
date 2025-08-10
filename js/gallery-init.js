@@ -1,41 +1,75 @@
 var initPhotoSwipeFromDOM = function (gallerySelector) {
+  // Add image counters to all galleries
+  var initGalleryIndicators = function () {
+    document.querySelectorAll(".project-gallery").forEach(function (gallery) {
+      // Remove any existing indicators
+      gallery
+        .querySelectorAll(".gallery__image-counter")
+        .forEach(function (el) {
+          el.remove();
+        });
+
+      var mainImage = gallery.querySelector(".gallery__link");
+      var hiddenImages = gallery.querySelectorAll(".hidden-gallery-items a");
+      var totalImages = hiddenImages.length + 1;
+
+      // Only add counter if there are multiple images
+      if (totalImages > 1) {
+        // Add counter
+        var counter = document.createElement("div");
+        counter.className = "gallery__image-counter";
+        counter.textContent = "1/" + totalImages;
+        gallery.appendChild(counter);
+      }
+    });
+  };
+
   var parseThumbnailElements = function (el) {
-    var thumbElements = el.childNodes,
-      numNodes = thumbElements.length,
-      items = [],
-      figureEl,
-      linkEl,
-      size,
-      item,
-      mediaElements;
+    var thumbElements = el.querySelectorAll(".project-gallery"),
+      items = [];
 
-    for (var i = 0; i < numNodes; i++) {
-      figureEl = thumbElements[i];
-
+    thumbElements.forEach(function (figureEl, galleryIndex) {
       if (figureEl.nodeType !== 1) {
-        continue;
+        return;
       }
 
-      linkEl = figureEl.children[0];
-
-      size = linkEl.getAttribute("data-size").split("x");
-      item = {
-        src: linkEl.getAttribute("href"),
-        w: parseInt(size[0], 10),
-        h: parseInt(size[1], 10),
-      };
-
-      if (figureEl.children.length > 1) {
-        item.title = figureEl.children[1].innerHTML;
+      // Set unique project ID if not already set
+      if (!figureEl.getAttribute("data-project-id")) {
+        figureEl.setAttribute("data-project-id", "project-" + galleryIndex);
       }
+      var projectId = figureEl.getAttribute("data-project-id");
 
-      if (linkEl.children.length > 0) {
-        item.msrc = linkEl.children[0].getAttribute("src");
-      }
+      // Get all gallery items for this project (visible + hidden)
+      var mainLink = figureEl.querySelector(".gallery__link");
+      var hiddenLinks = figureEl.querySelectorAll(".hidden-gallery-items a");
+      var allLinks = [mainLink, ...Array.from(hiddenLinks)];
+      var figureParent = figureEl.closest("figure");
+      var captionEl = figureParent.querySelector("figcaption");
 
-      item.el = figureEl;
-      items.push(item);
-    }
+      allLinks.forEach(function (linkEl, imageIndex) {
+        if (!linkEl) return;
+
+        var size = linkEl.getAttribute("data-size").split("x");
+        var item = {
+          src: linkEl.getAttribute("href"),
+          w: parseInt(size[0], 10),
+          h: parseInt(size[1], 10),
+          projectId: projectId,
+          imageIndex: imageIndex,
+        };
+
+        if (linkEl.children.length > 0) {
+          item.msrc = linkEl.children[0].getAttribute("src");
+        }
+
+        if (captionEl) {
+          item.title = captionEl.innerHTML;
+        }
+
+        item.el = figureEl;
+        items.push(item);
+      });
+    });
 
     return items;
   };
@@ -51,33 +85,30 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
     var eTarget = e.target || e.srcElement;
 
     var clickedListItem = closest(eTarget, function (el) {
-      return el.tagName && el.tagName.toUpperCase() === "FIGURE";
+      return el.classList && el.classList.contains("project-gallery");
     });
 
     if (!clickedListItem) {
       return;
     }
 
-    var clickedGallery = clickedListItem.parentNode,
-      childNodes = clickedListItem.parentNode.childNodes,
-      numChildNodes = childNodes.length,
-      nodeIndex = 0,
-      index;
+    var clickedGallery = clickedListItem.closest(gallerySelector);
+    var projectId = clickedListItem.getAttribute("data-project-id");
+    var items = parseThumbnailElements(clickedGallery);
 
-    for (var i = 0; i < numChildNodes; i++) {
-      if (childNodes[i].nodeType !== 1) {
-        continue;
-      }
+    // Find all items for this project
+    var projectItems = items.filter(function (item) {
+      return item.projectId === projectId;
+    });
 
-      if (childNodes[i] === clickedListItem) {
-        index = nodeIndex;
-        break;
-      }
-      nodeIndex++;
-    }
+    // Find the index within project items
+    var index = projectItems.findIndex(function (item) {
+      return item.el === clickedListItem;
+    });
 
     if (index >= 0) {
-      openPhotoSwipe(index, clickedGallery);
+      // Open PhotoSwipe with filtered items
+      openPhotoSwipe(index, clickedGallery, false, false, projectItems);
     }
     return false;
   };
@@ -113,22 +144,29 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
     index,
     galleryElement,
     disableAnimation,
-    fromURL
+    fromURL,
+    projectItems
   ) {
     var pswpElement = document.querySelectorAll(".pswp")[0],
       gallery,
-      options,
-      items;
+      options;
 
-    items = parseThumbnailElements(galleryElement);
+    // Use provided project items or get all items
+    var items = projectItems || parseThumbnailElements(galleryElement);
 
-    // define options (if needed)
+    // If no project items provided, filter by clicked project
+    if (!projectItems) {
+      var firstItem = items[index];
+      items = items.filter(function (item) {
+        return item.projectId === firstItem.projectId;
+      });
+      // Adjust index for filtered items
+      index = 0;
+    }
+
     options = {
       showHideOpacity: true,
-
-      // define gallery index (for URL)
       galleryUID: galleryElement.getAttribute("data-pswp-uid"),
-
       getThumbBoundsFn: function (index) {
         var thumbnail = items[index].el.getElementsByTagName("img")[0],
           pageYScroll =
@@ -137,6 +175,10 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
       },
+      getDoubleTapZoom: function () {
+        return 1;
+      },
+      index: index,
     };
 
     if (fromURL) {
@@ -150,20 +192,28 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
       } else {
         options.index = parseInt(index, 10) - 1;
       }
-    } else {
-      options.index = parseInt(index, 10);
     }
 
-    if (isNaN(options.index)) {
-      return;
-    }
-
-    if (disableAnimation) {
-      options.showAnimationDuration = 0;
-    }
     gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+    // Update counter when image changes
+    gallery.listen("afterChange", function () {
+      var currentIndex = gallery.getCurrentIndex();
+      var currentItem = items[currentIndex];
+      var galleryEl = currentItem.el;
+
+      // Update counter
+      var counter = galleryEl.querySelector(".gallery__image-counter");
+      if (counter) {
+        counter.textContent = currentIndex + 1 + "/" + items.length;
+      }
+    });
+
     gallery.init();
   };
+
+  // Initialize indicators for all galleries
+  initGalleryIndicators();
 
   var galleryElements = document.querySelectorAll(gallerySelector);
 
@@ -172,10 +222,14 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
     galleryElements[i].onclick = onThumbnailsClick;
   }
 
+  // Parse URL and open gallery if it contains #&pid=3&gid=1
   var hashData = photoswipeParseHash();
   if (hashData.pid && hashData.gid) {
     openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
   }
 };
 
-initPhotoSwipeFromDOM(".my-gallery");
+// Initialize galleries when the DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  initPhotoSwipeFromDOM(".my-gallery");
+});
