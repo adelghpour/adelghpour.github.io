@@ -51,22 +51,46 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
         var size = linkEl.getAttribute("data-size").split("x");
         var item = {
-          src: linkEl.getAttribute("href"),
           w: parseInt(size[0], 10),
           h: parseInt(size[1], 10),
           projectId: projectId,
           imageIndex: imageIndex,
+          el: figureEl,
         };
 
-        if (linkEl.children.length > 0) {
-          item.msrc = linkEl.children[0].getAttribute("src");
+        // Check if it's a video (by data-type attribute)
+        if (
+          linkEl.dataset.type === "video" ||
+          linkEl.getAttribute("href").endsWith(".webm")
+        ) {
+          // HTML content for video
+          var videoSrc = linkEl.getAttribute("href");
+          // <img
+          //   class="pswp__img"
+          //   src="img/TowerJump1.jpg"
+          //   style="opacity: 1; width: 1100px; height: 619px;"
+          // ></img>;
+          item.html = `
+          <div class="pswp__video-wrapper">
+            <video class="pswp__video" loop autoplay playsinline muted>
+              <source src="${videoSrc}" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        `;
+        } else {
+          // It's an image
+          item.src = linkEl.getAttribute("href");
+          if (linkEl.children.length > 0) {
+            item.msrc = linkEl.children[0].getAttribute("src");
+          }
         }
 
+        // Add caption if exists
         if (captionEl) {
           item.title = captionEl.innerHTML;
         }
 
-        item.el = figureEl;
         items.push(item);
       });
     });
@@ -168,15 +192,16 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
       showHideOpacity: true,
       galleryUID: galleryElement.getAttribute("data-pswp-uid"),
       getThumbBoundsFn: function (index) {
-        var thumbnail = items[index].el.getElementsByTagName("img")[0],
-          pageYScroll =
+        var thumbEl = items[index].el.querySelector("img, video");
+        if (!thumbEl) {
+          return { x: 0, y: 0, w: 0 }; // fallback if no thumbnail
+        }
+
+        var pageYScroll =
             window.pageYOffset || document.documentElement.scrollTop,
-          rect = thumbnail.getBoundingClientRect();
+          rect = thumbEl.getBoundingClientRect();
 
         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
-      },
-      getDoubleTapZoom: function () {
-        return 1;
       },
       index: index,
     };

@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap");
 
 /* Example usage:
@@ -40,12 +39,12 @@
 
   /* Calmer pastel accent (a soft, friendly blue) */
   --accent--light: #8BA4F9;
-  
+
   /* Secondary is a gentle lavender */
   --secondary--light: #B59CE6;
-  
+
   /* Semi-transparent version for overlays/effects */
-  --secondary-rgba--light: rgba(181,156,230, 0.3);
+  --secondary-rgba--light: rgba(181, 156, 230, 0.3);
 
   --stroke-controls--light: #A8B0C1;
   --stroke-controls-neutral--light: rgba(0, 0, 0, 0.3);
@@ -69,7 +68,8 @@
   /* Soft gradients using the accent & secondary */
   --gradient-one--dark: #8BA4F9;
   --gradient-two--dark: #B59CE6;
-  --gradient-three--dark: #695E9E; /* Light pinkish or off-white hue for variety */
+  --gradient-three--dark: #695E9E;
+  /* Light pinkish or off-white hue for variety */
 
   /* ------------------------------------------------*/
   /* Dark Scheme */
@@ -80,7 +80,7 @@
 
   --accent--dark: #8BA4F9;
   --secondary--dark: #B59CE6;
-  --secondary-rgba--dark: rgba(181,156,230, 0.2);
+  --secondary-rgba--dark: rgba(181, 156, 230, 0.2);
 
   --stroke-controls--dark: #4B4B51;
   --stroke-controls-neutral--dark: rgba(255, 255, 255, 0.3);
@@ -103,12 +103,13 @@
 
   --gradient-one--dark: #8BA4F9;
   --gradient-two--dark: #B59CE6;
-  --gradient-three--dark: #695E9E; /* Subtle deeper purple/blue for contrast */
+  --gradient-three--dark: #695E9E;
+  /* Subtle deeper purple/blue for contrast */
 
   /* Permanent colors (if any) */
   --per-base: #111111;
   --per-base-tint: #212121;
-  --per-stroke-controls: rgba(255,255,255,0.4);
+  --per-stroke-controls: rgba(255, 255, 255, 0.4);
   --t-per-bright-light: #ffffff;
   --t-per-medium-light: #f2f2f2;
   --t-per-muted-light: #C7C6D3;
@@ -226,8 +227,8 @@
   --t-opp-muted: var(--t-opp-muted--light);
 
   --gradient-one: var(--gradient-one--dark);
-    --gradient-two: var(--gradient-two--dark);
-    --gradient-three: var(--gradient-three--dark);
+  --gradient-two: var(--gradient-two--dark);
+  --gradient-three: var(--gradient-three--dark);
 }
 
 [color-scheme=dark] {
@@ -3062,6 +3063,7 @@ form textarea:required:valid {
 .content__block.block-large.no-mg {
   margin-bottom: 0rem;
 }
+
 .content__block.block-grid-large {
   margin-bottom: 10rem;
 }
@@ -4009,6 +4011,16 @@ form textarea:required:valid {
   opacity: 0;
 }
 
+.gallery__image,
+.gallery__image video,
+.gallery__link video {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .gallery__descr {
   position: absolute;
   bottom: 0;
@@ -4097,6 +4109,27 @@ form textarea:required:valid {
   border-radius: var(--_radius-xl);
   padding: 3rem;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure videos in PhotoSwipe scale responsively like images */
+.pswp__video-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pswp__video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .pswp__caption__center h5 {
@@ -4955,6 +4988,16 @@ form textarea:required:valid {
   height: 100%;
 }
 
+/* Ensure grid thumbnails that are <video> scale like images */
+.project-gallery video,
+.gallery__link video {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .gallery__image-counter {
   position: absolute;
   top: 15px;
@@ -5049,13 +5092,28 @@ form textarea:required:valid {
   margin-right: 2rem;
 }
 
-.div-top-50{
+.div-top-50 {
   margin-top: 30px;
 }
 
 
 @media only screen and (min-width: 1200px) {
-  .div-top-50{
-  margin-top: 50px;
+  .div-top-50 {
+    margin-top: 50px;
+  }
 }
+
+/* Enhanced video styling for gallery */
+.project-gallery video,
+.gallery__link video {
+  border-radius: var(--_radius-s);
+  background-color: var(--base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.no-touch .project-gallery video:hover,
+.no-touch .gallery__link video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
