@@ -57,33 +57,9 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
           imageIndex: imageIndex,
           el: figureEl,
         };
-
-        // // Check if it's a video (by data-type attribute)
-        // if (
-        //   linkEl.dataset.type === "video" ||
-        //   linkEl.getAttribute("href").endsWith(".webm")
-        // ) {
-        //   // HTML content for video
-        //   var videoSrc = linkEl.getAttribute("href");
-        //   // <img
-        //   //   class="pswp__img"
-        //   //   src="img/TowerJump1.jpg"
-        //   //   style="opacity: 1; width: 1100px; height: 619px;"
-        //   // ></img>;
-        //   item.html = `
-        //   <div class="pswp__video-wrapper">
-        //     <video class="pswp__video" loop autoplay playsinline muted>
-        //       <source src="${videoSrc}" type="video/webm">
-        //       Your browser does not support the video tag.
-        //     </video>
-        //   </div>
-        // `;
-        // } else {
-        // It's an image
         item.src = linkEl.getAttribute("href");
         if (linkEl.children.length > 0) {
           item.msrc = linkEl.children[0].getAttribute("src");
-          // }
         }
 
         // Add caption if exists
