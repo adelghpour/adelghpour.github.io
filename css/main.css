@@ -4060,6 +4060,17 @@ form textarea:required:valid {
   color: var(--t-opp-bright);
 }
 
+@media only screen and (min-width: 0px) {
+  .gallery__descr {
+    position: absolute;
+    bottom: 0;
+    left: 2.5rem;
+    width: -moz-calc(100% - 5rem);
+    width: calc(100% - 5rem);
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 1400px) {
   .gallery__descr {
     position: absolute;
@@ -4067,6 +4078,7 @@ form textarea:required:valid {
     left: 2.5rem;
     width: -moz-calc(100% - 5rem);
     width: calc(100% - 5rem);
+    display: block;
   }
 }
 
@@ -4165,6 +4177,18 @@ form textarea:required:valid {
   font: normal 400 calc(var(--_size) * 1.125)/1.4 var(--_font-default);
   color: var(--t-per-medium-light);
   margin-top: 1rem;
+}
+
+@media only screen and (min-width: 0px) {
+  .pswp__caption {
+    display: none;
+  }
+}
+
+  @media only screen and (min-width: 1200px) {
+  .pswp__caption {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
