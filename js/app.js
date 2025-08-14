@@ -317,6 +317,7 @@ function getCurrentTheme() {
 }
 const unityIcon = document.querySelector(".tools-cards__icon.unity");
 const unrealIcon = document.querySelector(".tools-cards__icon.unreal");
+const solidityIcon = document.querySelector(".tools-cards__icon.solidity");
 function loadTheme(theme) {
   const root = document.querySelector(":root");
   if (theme === "light") {
@@ -336,6 +337,13 @@ function loadTheme(theme) {
       theme === "dark"
         ? "img/icons/icon-unreal-engine.svg"
         : "img/icons/unreal-engine-icon.svg";
+  }
+
+  if (solidityIcon) {
+    solidityIcon.src =
+      theme === "dark"
+        ? "img/icons/icon-solidity.svg"
+        : "img/icons/solidity-icon.svg";
   }
 }
 

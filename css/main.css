@@ -4335,6 +4335,8 @@ form textarea:required:valid {
   -webkit-text-fill-color: transparent;
 }
 
+
+
 @media only screen and (min-width: 1200px) {
   .achievements__number {
     font-size: 7rem;
@@ -4345,6 +4347,11 @@ form textarea:required:valid {
   .achievements__number {
     font-size: 8rem;
   }
+}
+
+.achievements__years
+{
+  font-size: 2rem;
 }
 
 .achievements__descr {
