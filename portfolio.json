@@ -541,8 +541,8 @@
     {
       "id": "railbound-case-study",
       "group": "case-studies",
-      "title": "Railbound Tutorial Design",
-      "category": "Game design case study · Level design",
+      "title": "Railbound Design Study",
+      "category": "Game design case study · Tutorial and UI",
       "image": "img/railbound-case-study/Railbound.jpg",
       "imageAlt": "Annotated Railbound level 1 gameplay capture",
       "gallery": [
@@ -552,7 +552,7 @@
           "alt": "Annotated Railbound level 1 gameplay capture"
         }
       ],
-      "description": "A game design case study of how Railbound's first tutorial level teaches its interaction language through constrained puzzles, visual demonstration, partial guidance and consistent directional cues.",
+      "description": "A game design study of Railbound in two parts: how its first tutorial level teaches the rules through constrained puzzles, demonstration and partial hints, and what the game's own art and UI files reveal: mode cursors, a strict green/red colour rule, tintable white art, sprite atlases and ticket-shaped level buttons.",
       "role": "Game design research and analysis",
       "links": [
         {
