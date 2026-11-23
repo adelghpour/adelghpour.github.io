@@ -138,6 +138,12 @@ figure.smallFigure {
 .clips{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .clips .clip{margin:0}
 @media(max-width:700px){.clips{grid-template-columns:1fr}}
+.pair{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;align-items:stretch;margin:18px 0 8px}
+.pair .clip{margin:0;display:flex;flex-direction:column;justify-content:center}
+.pair .pairref{display:flex;flex-direction:column}
+.pair .pairref .well{aspect-ratio:auto;flex:1}
+.pair-note{font-size:.95rem}
+@media(max-width:700px){.pair{grid-template-columns:1fr}.pair .pairref .well{aspect-ratio:1/1}}
 @media(max-width:700px){.sounds{grid-template-columns:1fr}}
 @media(max-width:700px){.files-intro,.why{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles.wide{grid-template-columns:1fr}}
 @media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:12px}.hero{padding:58px 20px 48px}main{padding:42px 18px 64px}.analysis-grid,.legend,.points{grid-template-columns:1fr}}
@@ -241,7 +247,11 @@ figure.smallFigure {
    <figure class="tile"><div class="well"><img src="tex_ui_tmp_hand_point_outline+fill.png" alt="" loading="lazy"></div><figcaption>Tutorial hand<br><code>tex_ui_tmp_hand_point</code></figcaption></figure>
    <figure class="tile"><div class="well"><img src="tex_wagon_outlined_arrow.png" alt="" loading="lazy"></div><figcaption>Wagon direction arrow<br><code>tex_wagon_outlined_arrow</code></figcaption></figure>
   </div>
-<figure class="clip"><video src="videos/clip-world-colours.webm" poster="videos/posters/clip-world-colours.jpg" muted loop playsinline preload="none" aria-label="One set of tiles, many colours."></video><figcaption><b>One set of tiles, many colours.</b> On the level map, the same white level tiles are tinted per world, and the background shifts in a gradient as you move between worlds. This is the white-art approach working in the shipped game.</figcaption></figure>
+<div class="pair">
+   <figure class="clip"><video src="videos/clip-world-colours.webm" poster="videos/posters/clip-world-colours.jpg" muted loop playsinline preload="none" aria-label="One set of tiles, many colours."></video><figcaption><b>In the game:</b> the level map, tinted per world, with the background shifting in a gradient between worlds.</figcaption></figure>
+   <figure class="tile pairref"><div class="well"><img src="sactx-0-2048x2048-Crunch-atl_Menu2-6f29f5f6.png" alt="Menus and level map atlas" loading="lazy"></div><figcaption><b>In the files:</b> the same level tiles and the map ground are stored in grey and white in the Menus and level map atlas (<code>atl_Menu2</code>). The colour you see in the clip is added by the engine.</figcaption></figure>
+  </div>
+  <p class="pair-note"><b>One set of tiles, many colours.</b> Comparing the two shows the white-art approach working in the shipped game: one neutral atlas, recoloured for every world.</p>
   <p>Some files go further: they are not pictures at all but <b>masks</b>. These track hints and the cloud texture use pure red and green as two separate channels, which a shader can turn into any colours it wants. <span class="inference">Inference</span></p>
   <div class="tiles">
    <figure class="tile"><div class="well"><img src="straightHint.png" alt="" loading="lazy"></div><figcaption>Straight track hint<br><code>straightHint</code></figcaption></figure>
