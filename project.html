@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Project details, gallery, and playable builds from game designer Adel Ghasempour's portfolio.">
+  <title>Project | Adel Ghasempour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/main.css?v=art-1">
+  <link rel="stylesheet" href="css/motion.css?v=motion-1">
+</head>
+<body class="project-page">
+  <a class="skip-link" href="#project-main">Skip to project details</a>
+  <header class="nav project-nav">
+    <a class="logo" href="index.html#top"><i aria-hidden="true"></i><span>Adel Ghasempour</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="project-main" class="project-detail">
+    <div class="project-detail-shell">
+      <a class="detail-back" href="index.html#work"><span aria-hidden="true">←</span> <span class="detail-back-label">Back to all work</span></a>
+      <section id="project-content" hidden>
+        <header class="detail-heading">
+          <p class="detail-category" id="project-category"></p>
+          <h1 id="project-title"></h1>
+          <p class="detail-summary" id="project-description"></p>
+          <div class="detail-actions">
+            <a id="play-link" class="play-project-link" hidden>Play in browser <span aria-hidden="true">&#9654;</span></a>
+          </div>
+        </header>
+
+        <div class="detail-layout">
+          <section class="project-gallery" id="project-gallery" aria-label="Project gallery" tabindex="0">
+            <div class="gallery-view" id="gallery-view"></div>
+            <div class="gallery-caption">
+              <span id="gallery-counter" aria-live="polite"></span>
+              <span id="gallery-alt"></span>
+              <button class="gallery-expand" id="gallery-expand" type="button" aria-label="Open media at full size" aria-haspopup="dialog" aria-controls="media-dialog" title="Open media at full size"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5m0 8v5h-5M8 21H3v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg><span>Full size</span></button>
+            </div>
+            <div class="gallery-thumbnails" id="gallery-thumbnails" aria-label="Choose gallery media"></div>
+          </section>
+
+          <aside class="project-aside">
+            <div class="project-description-block">
+              <p class="detail-kicker">About this project</p>
+              <dl class="project-facts" id="project-facts"></dl>
+              <p id="project-role" class="detail-role" hidden></p>
+            </div>
+            <div id="project-links" class="project-links"></div>
+            <p id="project-feature" class="project-feature" hidden></p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="project-error" class="project-error" role="status" hidden>
+        <p class="detail-kicker">Project unavailable</p>
+        <h1>We couldn’t find that project.</h1>
+        <p>Return to the work archive and choose another project.</p>
+        <a class="detail-action" href="index.html#work">Browse all work</a>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="media-dialog" id="media-dialog" aria-label="Expanded project gallery">
+    <div class="media-dialog-shell">
+      <div class="media-dialog-top">
+        <p id="dialog-caption"></p>
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close expanded media">Close <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="media-dialog-content">
+        <button class="dialog-step" id="dialog-previous" type="button" aria-label="Previous media">←</button>
+        <div id="dialog-media" class="dialog-media"></div>
+        <button class="dialog-step" id="dialog-next" type="button" aria-label="Next media">→</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="foot detail-foot"><div class="wrap"><span>Adel Ghasempour</span><a href="index.html#work">Back to work</a></div></footer>
+  <script defer src="js/data-loader.js?v=folders-1"></script>
+  <script defer src="js/project-detail.js?v=nested-1"></script>
+  <script defer src="js/motion.js?v=motion-1"></script>
+</body>
+</html>

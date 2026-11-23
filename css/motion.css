@@ -1,0 +1,111 @@
+/* Shared motion layer for index.html, project.html and play.html.
+   Page transitions, entrances, scroll-linked image settle and hover polish.
+   Everything that moves sits inside (prefers-reduced-motion: no-preference),
+   so visitors who ask for less motion get the static site. */
+
+:root { --m-ease: cubic-bezier(.22, 1, .36, 1); --m-ease-in: cubic-bezier(.55, 0, .75, .2); }
+
+/* ---------- hover feedback that is not motion (kept for everyone) ---------- */
+.card { position: relative; }
+.card::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .07), transparent 62%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card.is-lit::after { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- page transitions ---------- */
+  /* Cross-document view transitions (Chrome/Edge 126+, Safari 18.2+). */
+  @view-transition { navigation: auto; }
+  .nav, .play-topbar { view-transition-name: site-bar; }
+  ::view-transition-old(root) { animation: m-page-out .2s var(--m-ease-in) both; }
+  ::view-transition-new(root) { animation: m-page-in .5s var(--m-ease) both; }
+  ::view-transition-group(site-bar) { animation-duration: .45s; animation-timing-function: var(--m-ease); }
+
+  /* Browsers without view transitions get a plain fade in (opacity only, so fixed elements stay fixed). */
+  @supports not selector(::view-transition) {
+    body { animation: m-fade-in .45s var(--m-ease) both; }
+  }
+  html.m-leaving body { opacity: 0; transition: opacity .18s var(--m-ease-in); }
+
+  /* ---------- hover polish ---------- */
+  .card { transition: border-color .3s, translate .45s var(--m-ease); }
+  .card::after { transition: opacity .35s var(--m-ease); }
+  @media (hover: hover) and (pointer: fine) {
+    /* !important: GSAP reveals leave an inline `translate: none` on .rv cards. */
+    .card:hover { translate: 0 -4px !important; }
+    .btn > span[aria-hidden], .hero-resume > span[aria-hidden] { display: inline-block; transition: translate .35s var(--m-ease); }
+    .btn:hover > span[aria-hidden], .hero-resume:hover > span[aria-hidden] { translate: 0 3px; }
+    .detail-back span, .play-back span { display: inline-block; transition: translate .35s var(--m-ease); }
+    .detail-back:hover span, .play-back:hover span { translate: -4px 0; }
+    .play-project-link span, .project-links a span { display: inline-block; transition: translate .35s var(--m-ease); }
+    .play-project-link:hover span, .project-links a:hover span { translate: 2px -2px; }
+    .gallery-thumb { transition: border-color .2s, translate .3s var(--m-ease); }
+    .gallery-thumb:hover { translate: 0 -2px; }
+  }
+  .detail-action:active, .play-project-link:active { scale: .98; }
+
+  /* ---------- nav hides while scrolling down, returns on scroll up ---------- */
+  .nav.m-nav-hidden { translate: 0 calc(-100% - env(safe-area-inset-top, 0px)); }
+  .nav { transition: translate .4s var(--m-ease); }
+
+  /* ---------- home: card images settle as they scroll in ---------- */
+  @supports (animation-timeline: view()) {
+    .shot > img, .shot > video, .shot > .folder-preview {
+      animation: m-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+
+  /* ---------- project page entrance ---------- */
+  .project-detail .detail-back,
+  #project-content:not([hidden]) .detail-heading > *,
+  #project-content:not([hidden]) .project-gallery,
+  #project-content:not([hidden]) .project-aside > :not([hidden]),
+  #project-error:not([hidden]) > * {
+    animation: m-rise .7s var(--m-ease) backwards;
+    animation-delay: calc(var(--m-i, 0) * 70ms + 60ms);
+  }
+  #project-content .detail-heading > :nth-child(1) { --m-i: 1; }
+  #project-content .detail-heading > :nth-child(2) { --m-i: 2; }
+  #project-content .detail-heading > :nth-child(3) { --m-i: 3; }
+  #project-content .project-gallery { --m-i: 4; }
+  #project-content .project-aside > :nth-child(1) { --m-i: 5; }
+  #project-content .project-aside > :nth-child(2) { --m-i: 6; }
+  #project-content .project-aside > :nth-child(n+3) { --m-i: 7; }
+  #project-error > :nth-child(2) { --m-i: 1; }
+  #project-error > :nth-child(3) { --m-i: 2; }
+  #project-error > :nth-child(n+4) { --m-i: 3; }
+
+  /* gallery swap + full-size dialog */
+  .gallery-media, .dialog-media > * { animation: m-media-in .45s var(--m-ease) backwards; }
+  .media-dialog[open] { animation: m-dialog-in .35s var(--m-ease) backwards; }
+  .media-dialog[open]::backdrop { animation: m-fade-in .3s ease-out both; }
+
+  /* ---------- play page ---------- */
+  .play-topbar > * { animation: m-rise .6s var(--m-ease) backwards; }
+  .play-topbar > :nth-child(2) { animation-delay: 60ms; }
+  .play-topbar > :nth-child(3) { animation-delay: 120ms; }
+  .game-shell:not([hidden]) { animation: m-shell-in .7s var(--m-ease) .1s backwards; }
+  .game-message:not([hidden]) > * { animation: m-rise .7s var(--m-ease) backwards; }
+  .game-message > :nth-child(2) { animation-delay: 70ms; }
+  .game-message > :nth-child(3) { animation-delay: 140ms; }
+  .game-message > :nth-child(n+4) { animation-delay: 210ms; }
+
+  /* ---------- keyframes ---------- */
+  /* Only `from` frames, using the individual translate/scale properties,
+     so finished animations hand control back to hover and layout styles. */
+  @keyframes m-page-out { to { opacity: 0; translate: 0 -10px; } }
+  @keyframes m-page-in { from { opacity: 0; translate: 0 16px; } }
+  @keyframes m-fade-in { from { opacity: 0; } }
+  @keyframes m-rise { from { opacity: 0; translate: 0 18px; } }
+  @keyframes m-settle { from { scale: 1.12; } to { scale: 1; } }
+  @keyframes m-media-in { from { opacity: 0; scale: 1.015; } }
+  @keyframes m-dialog-in { from { opacity: 0; translate: 0 12px; scale: .985; } }
+  @keyframes m-shell-in { from { opacity: 0; scale: .985; } }
+}
