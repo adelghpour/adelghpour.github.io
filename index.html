@@ -446,9 +446,9 @@ img[src$=".gif"] { image-rendering: pixelated; }
   var FRAME_PATH = function (i) { return 'frames/f_' + String(i + 1).padStart(3, '0') + '.webp'; };
   // scroll progress -> frame (0-based). Slow on the cut, steady through the world, hold on the eye.
   // [scroll progress, frame]. Stage 1 ends at 25, stage 2 settles on 68, stage 3 reaches the last frame (141)
-  // at END_P; the short stretch after it is a hold on the final frame where the one-time snap happens.
-  var KEYS = [[0, 0], [0.2, 25], [0.5, 68], [0.6, 94], [0.92, 141], [1, 141]];
-  var END_P = 0.92, ABOUT_FRAME = 68;
+  // exactly as the scene ends, so the animation flows straight into the content below.
+  var KEYS = [[0, 0], [0.2, 25], [0.5, 68], [0.6, 94], [1, 141]];
+  var ABOUT_FRAME = 68;
   var STAGE_START = [0, 26, 95];
   var ACCENTS = ['#cfd3da', '#3ab4ff', '#ff2d20'];
   var NAMES = ['Blockout', 'The World', 'The Eye'];
@@ -595,7 +595,6 @@ img[src$=".gif"] { image-rendering: pixelated; }
     window.scrollTo({ top: top + p * (scene.offsetHeight - window.innerHeight), behavior: reduce ? 'auto' : 'smooth' });
   }
   function go(where) {
-    snapPauseUntil = performance.now() + 1600; // button and menu jumps glide past the snap
     if (where === 'top') window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     else if (where === 'about') scrollToProgress(progressAt(ABOUT_FRAME));
     else { var el = $(where); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: reduce ? 'auto' : 'smooth' }); }
@@ -603,42 +602,6 @@ img[src$=".gif"] { image-rendering: pixelated; }
   [].forEach.call(document.querySelectorAll('[data-go]'), function (a) {
     a.addEventListener('click', function (e) { e.preventDefault(); go(a.getAttribute('data-go')); });
   });
-
-  /* ---------- one-time snap on the final frame ----------
-     Scrolling down past the moment the last frame lands stops right there once:
-     the page settles on the final frame, the rest of that gesture (trackpad or
-     wheel momentum, a swipe) is absorbed, and only a new scroll continues on to
-     the work below. Scrolling back up above the scene's end arms it again. */
-  var snapArmed = true, snapLocked = false, snapPauseUntil = 0, lastScrollY = window.scrollY, quietTimer = null, lockStarted = 0;
-  function endY() {
-    var top = scene.getBoundingClientRect().top + window.scrollY;
-    return top + END_P * (scene.offsetHeight - window.innerHeight);
-  }
-  function swallowKeys(e) {
-    if (snapLocked && [' ', 'Spacebar', 'PageDown', 'ArrowDown', 'End'].indexOf(e.key) !== -1) e.preventDefault();
-  }
-  function releaseWhenQuiet() {
-    // Unlock after the input goes quiet (momentum finished), but never sooner than 650ms.
-    clearTimeout(quietTimer);
-    var wait = Math.max(260, 650 - (performance.now() - lockStarted));
-    quietTimer = setTimeout(function () { snapLocked = false; }, wait);
-  }
-  function onLockedInput(e) { if (snapLocked) { e.preventDefault(); releaseWhenQuiet(); } }
-  window.addEventListener('wheel', onLockedInput, { passive: false });
-  window.addEventListener('touchmove', onLockedInput, { passive: false });
-  window.addEventListener('keydown', swallowKeys);
-  window.addEventListener('scroll', function () {
-    var y = window.scrollY, end = endY();
-    if (snapLocked && Math.abs(y - end) > 1) { window.scrollTo(0, end); releaseWhenQuiet(); } // momentum still running: keep holding
-    else if (snapArmed && y > lastScrollY && lastScrollY < end - 1 && y >= end - 1 && performance.now() > snapPauseUntil) {
-      snapArmed = false; snapLocked = true; lockStarted = performance.now();
-      window.scrollTo(0, end);
-      target = END_P;
-      releaseWhenQuiet();
-    }
-    if (y < end - window.innerHeight * 0.25) snapArmed = true;
-    lastScrollY = window.scrollY;
-  }, { passive: true });
 
   /* ---------- reveals ---------- */
   function setupReveals() {
