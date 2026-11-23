@@ -120,13 +120,25 @@ figure.smallFigure {
 .swatches{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
 .swatch{display:flex;align-items:center;gap:8px;font-size:.85rem;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 12px}
 .swatch i{width:14px;height:14px;border-radius:50%;display:inline-block}
+.sounds{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.sound{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sound h4{margin:0 0 2px;font-size:1.02rem;letter-spacing:-.01em}
+.sound .role{color:var(--muted);font-size:.82rem;margin-bottom:10px}
+.sound .wave{background:#f1efe9;border-radius:10px;padding:8px 10px;margin-bottom:10px}
+.sound .wave img{display:block;width:100%;height:46px;object-fit:fill}
+.sound audio{width:100%;height:36px}
+.sound dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:10px 0 0;font-size:.82rem}
+.sound dt{color:var(--muted)}
+.sound dd{margin:0}
+.levels{margin:6px 0 4px;font-size:.85rem;color:var(--muted)}
+@media(max-width:700px){.sounds{grid-template-columns:1fr}}
 @media(max-width:700px){.files-intro,.why{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles.wide{grid-template-columns:1fr}}
 @media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:12px}.hero{padding:58px 20px 48px}main{padding:42px 18px 64px}.analysis-grid,.legend,.points{grid-template-columns:1fr}}
 @media print{.topbar{position:static}.hero{padding:40px 24px}main{padding-top:35px}.section{break-inside:avoid}}
 </style>
 </head>
 <body>
-<header class="topbar"><nav class="nav"><div class="brand">RAILBOUND / DESIGN STUDY</div><div class="navlinks"><a href="#overview">Overview</a><a href="#evidence">Visual evidence</a><a href="#analysis">Tutorial</a><a href="#files">Art &amp; UI files</a><a href="#takeaways">Takeaways</a><a class="backlink" href="../../project.html?id=railbound-case-study">&larr; Back to portfolio</a></div></nav></header>
+<header class="topbar"><nav class="nav"><div class="brand">RAILBOUND / DESIGN STUDY</div><div class="navlinks"><a href="#overview">Overview</a><a href="#evidence">Visual evidence</a><a href="#analysis">Tutorial</a><a href="#files">Art &amp; UI files</a><a href="#sound">Sound</a><a href="#takeaways">Takeaways</a><a class="backlink" href="../../project.html?id=railbound-case-study">&larr; Back to portfolio</a></div></nav></header>
 <section class="hero">
  <div class="wrap">
   <div class="kicker">Game Design Case Study · Level 01</div>
@@ -165,7 +177,7 @@ figure.smallFigure {
  <div class="eyebrow">04 / Behind the art</div><h2>What the game’s files reveal</h2>
  <p class="lead">The tutorial is only the visible half of Railbound’s clarity. I went through the textures and sounds extracted from the game to see how the art and UI are built. The files show a small, disciplined visual system: a handful of reusable shapes, one colour rule, and textures packed and prepared so the engine can do the rest.</p>
  <div class="files-intro">
-  <div class="stat"><b>88</b><span>PNG textures and 4 sound effects examined</span></div>
+  <div class="stat"><b>88 + 4</b><span>PNG textures and sound effects examined</span></div>
   <div class="stat"><b>71 of 88</b><span>textures are pure white, grey and black, with no colour of their own</span></div>
   <div class="stat"><b>5</b><span>packed sprite atlases, split by screen and by input device</span></div>
  </div>
@@ -258,7 +270,7 @@ figure.smallFigure {
  <div class="study">
   <div class="tag">Feedback · Effects, input prompts and sound</div>
   <h3>Every action answers back</h3>
-  <p>Placing track, breaking a tile, switching a rail and crashing all have their own short flipbook effect, again drawn in white so they can be tinted. Input prompts exist for both keyboard and mouse and an Xbox controller, so tutorials can show the right button for whatever the player holds. Four sounds round it off: a bell, a whistle for fast-forward, a crash and a fail sting.</p>
+  <p>Placing track, breaking a tile, switching a rail and crashing all have their own short flipbook effect, again drawn in white so they can be tinted. Input prompts exist for both keyboard and mouse and an Xbox controller, so tutorials can show the right button for whatever the player holds. Sound does the same job, covered in the next part.</p>
   <div class="tiles wide">
    <figure class="tile"><div class="well"><img src="tex_vfx_placement.png" alt="" loading="lazy"></div><figcaption>Track placement puff<br><code>tex_vfx_placement</code></figcaption></figure>
    <figure class="tile"><div class="well"><img src="tex_vfx_switchrail2_sheet.png" alt="" loading="lazy"></div><figcaption>Rail switch<br><code>tex_vfx_switchrail2_sheet</code></figcaption></figure>
@@ -273,6 +285,21 @@ figure.smallFigure {
   </div>
   <div class="why"><div><strong>What it does</strong>Success, mistakes and mode changes each get their own short, readable response, so the player always knows what just happened.</div><div><strong>Design lesson</strong>Feedback is part of the puzzle’s clarity. If every action answers back, players can experiment without fear and learn the rules by doing.</div></div>
  </div>
+
+ <div class="study" id="sound">
+  <div class="tag">Sound · Clarity and good choices</div>
+  <h3>Four sounds, four jobs, no confusion</h3>
+  <p>The game files include four key sound effects. Each one has a clearly different shape, pitch and length, so the player can tell what happened with their eyes closed. Press play to hear them. The waveforms are drawn to the same time scale, so you can compare their lengths.</p>
+  <div class="sounds">
+   <article class="sound"><h4>Bell</h4><div class="role">A gate or crossing opening (from the file name) · <code>bell open.wav</code></div><div class="wave"><img src="sound-bell.png" alt="Waveform of Bell"></div><audio controls preload="none" src="bell%20open.wav"></audio><dl><dt>Length</dt><dd>2.1 s</dd><dt>Character</dt><dd>Bright two-tone chime that alternates between about 870 Hz and 1,500 Hz, like a railway crossing bell</dd><dt>Brightness</dt><dd>Highest of the four</dd></dl></article>
+   <article class="sound"><h4>Fast-forward whistle</h4><div class="role">Speeding the trains up (from the file name) · <code>ffwhistle.wav</code></div><div class="wave"><img src="sound-whistle.png" alt="Waveform of Fast-forward whistle"></div><audio controls preload="none" src="ffwhistle.wav"></audio><dl><dt>Length</dt><dd>1.9 s</dd><dt>Character</dt><dd>Train whistle with a very sharp start (about 7 ms to full volume) and a steady pitch around 550 Hz</dd><dt>Attack</dt><dd>Fastest of the four</dd></dl></article>
+   <article class="sound"><h4>Crash</h4><div class="role">Wagons colliding · <code>car_crash.wav</code></div><div class="wave"><img src="sound-crash.png" alt="Waveform of Crash"></div><audio controls preload="none" src="car_crash.wav"></audio><dl><dt>Length</dt><dd>0.6 s</dd><dt>Character</dt><dd>Short, noisy burst with no clear pitch</dd><dt>Length</dt><dd>Shortest of the four</dd></dl></article>
+   <article class="sound"><h4>Fail</h4><div class="role">A failed attempt · <code>fail.wav</code></div><div class="wave"><img src="sound-fail.png" alt="Waveform of Fail"></div><audio controls preload="none" src="fail.wav"></audio><dl><dt>Length</dt><dd>3.0 s</dd><dt>Character</dt><dd>Slow, soft start (about half a second) and the lowest pitch of the set, ending on its lowest note around 295 Hz</dd><dt>Pitch</dt><dd>Lowest of the four</dd></dl></article>
+  </div>
+  <p class="levels">Measured from the files: all four are 44.1 kHz stereo and sit within 2.6 dB of each other in average loudness (−15.5 to −18.1 dB RMS), with peaks normalised close to full scale.</p>
+  <div class="why"><div><strong>Clarity</strong>No two sounds share a profile. The bell is bright and repeating, the whistle starts instantly, the crash is a short burst of noise, and the fail is low and slow. Because their loudness is matched, none drowns out another, so each event reads on its own.</div><div><strong>Good choices</strong>Three of the four come straight from the railway world: a crossing bell, a train whistle and a crash. The theme teaches what they mean. Short, sharp sounds mark quick events, and the longest, lowest sound marks failure, giving the player a moment to take it in. <span class="inference">Inference</span></div></div>
+  <div class="why" style="margin-top:14px"><div><strong>Positive vs negative</strong>Positive or neutral feedback (bell, whistle) is high and bright. Negative feedback (crash, fail) is noisy or low. Players hear whether things went well before they see it.</div><div><strong>Design lesson</strong>Give every important event its own sound "shape" (pitch, attack, length), keep levels consistent, and borrow sounds players already understand from the game's theme.</div></div>
+ </div>
 </section>
 <section class="section" id="takeaways">
  <div class="eyebrow">05 / Key takeaways</div><h2>What this tutorial teaches about onboarding</h2>
@@ -282,6 +309,7 @@ figure.smallFigure {
   <div class="point"><h3>Guide without solving</h3><p>Partial hints can support the player while preserving their role in completing the reasoning.</p></div>
   <div class="point"><h3>Teach a reusable visual language</h3><p>Consistent directional indicators help players interpret later situations more efficiently.</p></div>
   <div class="point"><h3>Save colour for meaning</h3><p>Neutral art with one green/red rule makes the signals that change the train impossible to miss.</p></div>
+  <div class="point"><h3>Make every sound distinct</h3><p>Different pitch, attack and length for each event, at matched loudness, keeps audio feedback readable.</p></div>
   <div class="point"><h3>Build art for the engine</h3><p>Tintable white sprites, colour masks and atlases split by screen keep the look consistent and the game fast.</p></div>
  </div>
 </section>
