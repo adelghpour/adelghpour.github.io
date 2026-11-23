@@ -543,13 +543,33 @@
       "group": "case-studies",
       "title": "Railbound Design Study",
       "category": "Game design case study · Tutorial and UI",
-      "image": "img/railbound-case-study/Railbound.jpg",
-      "imageAlt": "Annotated Railbound level 1 gameplay capture",
+      "image": "img/railbound-case-study/RailboundTutorial.webm",
+      "imageAlt": "Railbound level 1-1 tutorial hint in motion",
       "gallery": [
+        {
+          "src": "img/railbound-case-study/RailboundTutorial.webm",
+          "type": "video",
+          "alt": "Railbound level 1-1: the tutorial hand and trail"
+        },
         {
           "src": "img/railbound-case-study/Railbound.jpg",
           "type": "image",
-          "alt": "Annotated Railbound level 1 gameplay capture"
+          "alt": "Railbound level 1-1, annotated"
+        },
+        {
+          "src": "img/railbound-case-study/AtlasMenu.png",
+          "type": "image",
+          "alt": "Menus and level map sprite atlas, stored in grey and white"
+        },
+        {
+          "src": "img/railbound-case-study/AtlasGameUI.png",
+          "type": "image",
+          "alt": "In-game UI sprite atlas"
+        },
+        {
+          "src": "img/railbound-case-study/AtlasController.png",
+          "type": "image",
+          "alt": "Controller prompt sprite atlas"
         }
       ],
       "description": "A game design study of Railbound in two parts: how its first tutorial level teaches the rules through constrained puzzles, demonstration and partial hints, and what the game's own art and UI files reveal: mode cursors, a strict green/red colour rule, tintable white art, sprite atlases and ticket-shaped level buttons.",
@@ -559,7 +579,8 @@
           "label": "Read the part 1",
           "url": "CaseStudies/Railbound/Railbound_Level_1_Case_Study.html"
         }
-      ]
+      ],
+      "mediaBackground": "#6f7484"
     },
     {
       "id": "from-gamer-to-designer",
