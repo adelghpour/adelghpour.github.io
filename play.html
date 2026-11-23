@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Play a browser build from Adel Ghasempour's game portfolio.">
+  <title>Play | Adel Ghasempour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/main.css?v=art-1">
+  <link rel="stylesheet" href="css/motion.css?v=motion-1">
+</head>
+<body class="play-page">
+  <a class="skip-link" href="#game-frame">Skip to game</a>
+  <header class="play-topbar">
+    <a class="play-back" id="play-back" href="index.html#work"><span aria-hidden="true">←</span> Project details</a>
+    <div class="play-title-wrap"><span class="play-kicker">Now playing</span><h1 id="play-title">Loading project</h1></div>
+    <button class="fullscreen-button" id="fullscreen-button" type="button" disabled>Fullscreen</button>
+  </header>
+
+  <main class="game-page-main">
+    <div class="game-shell" id="game-shell" hidden>
+      <div class="game-status" id="game-status" role="status" aria-live="polite">Starting game…</div>
+      <div class="fs-bar" id="fs-bar">
+        <a class="fs-button" id="fs-back" href="index.html#work"><span aria-hidden="true">&larr;</span> Back</a>
+        <button class="fs-button" id="fs-exit" type="button"><span aria-hidden="true">&#10005;</span> Exit full screen</button>
+      </div>
+      <iframe id="game-frame" title="Playable project" allow="fullscreen; autoplay; gamepad" allowfullscreen></iframe>
+    </div>
+    <section class="game-message" id="game-message" hidden>
+      <p class="detail-kicker" id="game-message-kicker">Browser build unavailable</p>
+      <h2 id="game-message-title">This project has no browser build yet.</h2>
+      <p id="game-message-copy">You can still view its project details or use an external game link if one is available.</p>
+      <div id="game-message-links" class="project-links"></div>
+      <a class="detail-action" id="game-message-back" href="index.html#work">Return to portfolio</a>
+    </section>
+  </main>
+
+  <script defer src="js/data-loader.js?v=folders-1"></script>
+  <script defer src="js/play.js?v=moonlight-1"></script>
+  <script defer src="js/motion.js?v=motion-1"></script>
+</body>
+</html>

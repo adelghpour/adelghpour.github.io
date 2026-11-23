@@ -1,0 +1,1033 @@
+{
+  "person": {
+    "name": "Adel Ghasempour",
+    "firstName": "Adel",
+    "familyName": "Ghasempour",
+    "role": "Game designer · Mobile puzzle and hybrid-casual",
+    "email": "adelghwork@gmail.com",
+    "phone": "+1 417 812 5455",
+    "phoneLink": "+14178125455",
+    "linkedin": "https://www.linkedin.com/in/adelghasempour/",
+    "github": "https://github.com/adelghpour",
+    "itch": "https://pro-code-designer.itch.io",
+    "resume": "Resume/Adel_Ghasempour_Senior_Game_Designer.pdf",
+    "bio": "Game designer for mobile puzzle and hybrid-casual games who finds the real reason behind player behavior, then proves every fix with data. At Voodoo: +12% retention from a dynamic difficulty system and a CPI cut from $8.50 to $0.95. Founder of MahfeleBazi, a game design academy. 8 puzzle games designed and released."
+  },
+  "intro": {
+    "prompt": "I find the real reason behind player behavior, then prove every fix with data.",
+    "aboutTitle": "Systems, levels, and the <em>feel</em> between them.",
+    "showcaseTitle": "A world of work built to be <em>played.</em>",
+    "featuredId": "moonlight-chess",
+    "stages": [
+      "Blockout",
+      "The World",
+      "The Eye"
+    ],
+    "homeBio": "Designer of mobile puzzle and hybrid-casual games. At Voodoo: +12% retention from my dynamic difficulty system and a CPI cut from $8.50 to $0.95.",
+    "archiveDescription": "Open a folder to browse games, art, published assets, MahfeleBazi, and case studies."
+  },
+  "highlights": [
+    {
+      "value": "+12%",
+      "label": "retention at Voodoo"
+    },
+    {
+      "value": "8",
+      "label": "puzzle games released"
+    },
+    {
+      "value": "300+",
+      "label": "hand-made levels"
+    }
+  ],
+  "teaching": {
+    "organization": "MahfeleBazi",
+    "summary": "I founded and run a game design academy with a workshop every 3 months and 1 to 2 game jams a year, about 120 attendees per event.",
+    "offerings": [
+      "Game jam events",
+      "Game design workshops"
+    ],
+    "formats": [
+      "Online",
+      "In person"
+    ],
+    "events": []
+  },
+  "archiveFolders": [
+    {
+      "id": "games",
+      "title": "Games",
+      "group": "games",
+      "description": "Games and playable projects I have designed and developed."
+    },
+    {
+      "id": "art",
+      "title": "My Art",
+      "group": "art",
+      "description": "Character art, illustrations, and environments.",
+      "cover": [
+        "ninja-3d",
+        "red-robot",
+        "space-art",
+        "secret-project-art"
+      ]
+    },
+    {
+      "id": "pixel-art-animations",
+      "parent": "art",
+      "aliases": [
+        "pixel-art-animated"
+      ],
+      "title": "Pixel Art Animations",
+      "group": "pixel-animations",
+      "description": "Looping pixel art animations of characters and props."
+    },
+    {
+      "id": "character-design",
+      "parent": "art",
+      "aliases": [
+        "pixel-characters"
+      ],
+      "title": "Character Design",
+      "group": "character-design",
+      "description": "Original characters designed in pixel art."
+    },
+    {
+      "id": "mahfelebazi",
+      "title": "MahfeleBazi",
+      "group": "teaching",
+      "description": "My game design academy: workshops every 3 months, 1 to 2 game jams a year, about 120 attendees per event."
+    },
+    {
+      "id": "published-assets",
+      "title": "Published Assets",
+      "group": "assets",
+      "description": "Tools, templates, and asset packs I have published for other developers."
+    },
+    {
+      "id": "case-studies",
+      "title": "Case Studies",
+      "group": "case-studies",
+      "description": "Game design studies, technical experiments, and prototypes."
+    }
+  ],
+  "skills": [
+    {
+      "label": "Design",
+      "value": "Puzzle and level design, difficulty curves, LiveOps, prototyping, playtesting"
+    },
+    {
+      "label": "Data",
+      "value": "A/B tests, GameAnalytics, D1 to D30 retention, CPI"
+    },
+    {
+      "label": "Tech",
+      "value": "Unity, Unreal, C#, C++, procedural generation"
+    }
+  ],
+  "projects": [
+    {
+      "id": "moonlight-chess",
+      "group": "games",
+      "title": "Moonlight Chess",
+      "category": "Puzzle · Game design",
+      "image": "img/moonlight-chess/ChessLily.webm",
+      "imageAlt": "Moonlight Chess gameplay trailer",
+      "gallery": [
+        {
+          "src": "img/moonlight-chess/ChessLily.webm",
+          "type": "video",
+          "alt": "Moonlight Chess gameplay trailer"
+        },
+        {
+          "src": "img/moonlight-chess/ChessLily2.webm",
+          "type": "video",
+          "alt": "Moonlight Chess gameplay walkthrough"
+        },
+        {
+          "src": "img/moonlight-chess/ChessLily1.jpg",
+          "type": "image",
+          "alt": "Moonlight Chess gameplay screenshot"
+        },
+        {
+          "src": "img/moonlight-chess/ChessLily2.jpg",
+          "type": "image",
+          "alt": "Moonlight Chess board and match screenshot"
+        }
+      ],
+      "description": "A puzzle game that takes chess somewhere new, blending traditional strategy with new mechanics for depth and replayability. I designed its 75 hand-made levels and their difficulty curve.",
+      "role": "Game design, level design and programming",
+      "links": [],
+      "playableUrl": "Games/MoonlightChess/index.html",
+      "playableAspect": "324 / 432",
+      "aliases": [
+        "chess-lily"
+      ],
+      "facts": [
+        {
+          "label": "Levels",
+          "value": "75, hand-made"
+        }
+      ]
+    },
+    {
+      "id": "free-arrow",
+      "group": "games",
+      "title": "Free Arrow",
+      "category": "Puzzle · Procedural level design",
+      "image": "img/free-arrow/ArrowMain.webm",
+      "imageAlt": "Free Arrow gameplay video",
+      "gallery": [
+        {
+          "src": "img/free-arrow/ArrowMain.webm",
+          "type": "video",
+          "alt": "Free Arrow gameplay video"
+        },
+        {
+          "src": "img/free-arrow/Arrow.webm",
+          "type": "video",
+          "alt": "Free Arrow gameplay clip"
+        },
+        {
+          "src": "img/free-arrow/Arrow1.png",
+          "type": "image",
+          "alt": "Free Arrow level 8 board, mid-solve"
+        },
+        {
+          "src": "img/free-arrow/Arrow2.png",
+          "type": "image",
+          "alt": "Free Arrow level select screen"
+        },
+        {
+          "src": "img/free-arrow/Arrow3.png",
+          "type": "image",
+          "alt": "Arrows sliding off the board"
+        },
+        {
+          "src": "img/free-arrow/Arrow4.png",
+          "type": "image",
+          "alt": "Free Arrow settings menu"
+        },
+        {
+          "src": "img/free-arrow/Arrow5.png",
+          "type": "image",
+          "alt": "Level complete screen with reward"
+        },
+        {
+          "src": "img/free-arrow/Arrow6.png",
+          "type": "image",
+          "alt": "Free Arrow level 9 board"
+        }
+      ],
+      "description": "A minimalist arrow puzzle: clear the board by sliding arrows out in the right order, with limited lives per level. Its procedural generator outputs only valid, solvable levels, and a bit-packed save system fits 100,000 levels in 2 MB.",
+      "role": "Game design and programming",
+      "playableUrl": "Games/ArrowGame/index.html",
+      "playableAspect": "216 / 468",
+      "links": [],
+      "facts": [
+        {
+          "label": "Levels",
+          "value": "Procedurally generated, always solvable"
+        }
+      ]
+    },
+    {
+      "id": "try-harder",
+      "group": "games",
+      "title": "Try Harder",
+      "category": "Action puzzle · Personal project",
+      "image": "img/try-harder/TryHarder.webm",
+      "imageAlt": "Try Harder gameplay trailer",
+      "gallery": [
+        {
+          "src": "img/try-harder/TryHarder.webm",
+          "type": "video",
+          "alt": "Try Harder gameplay trailer"
+        },
+        {
+          "src": "img/try-harder/TryHarder1.png",
+          "type": "image",
+          "alt": "Try Harder game artwork"
+        },
+        {
+          "src": "img/try-harder/TryHarder2.png",
+          "type": "image",
+          "alt": "Try Harder gameplay screenshot"
+        },
+        {
+          "src": "img/try-harder/TryHarder3.png",
+          "type": "image",
+          "alt": "Try Harder gameplay screenshot"
+        },
+        {
+          "src": "img/try-harder/TryHarder4.png",
+          "type": "image",
+          "alt": "Try Harder gameplay screenshot"
+        }
+      ],
+      "description": "A personal project built from the initial idea through design, coding, 30 hand-made levels, character creation and sound effects. Designed to challenge even dedicated players.",
+      "role": "Solo developer: design, programming, art and sound",
+      "playableUrl": "Games/Try%20Harder%20Soul%20Swap/index.html",
+      "links": [],
+      "facts": [
+        {
+          "label": "Levels",
+          "value": "30, hand-made"
+        }
+      ]
+    },
+    {
+      "id": "old-man-bubbly",
+      "group": "games",
+      "title": "Oldman Bubbly",
+      "category": "Point-and-click · Game jam",
+      "image": "img/old-man-bubbly/Oldman.webm",
+      "imageAlt": "Oldman Bubbly gameplay trailer",
+      "gallery": [
+        {
+          "src": "img/old-man-bubbly/Oldman.webm",
+          "type": "video",
+          "alt": "Oldman Bubbly gameplay trailer"
+        },
+        {
+          "src": "img/old-man-bubbly/Oldman2.jpg",
+          "type": "image",
+          "alt": "Oldman Bubbly game scene"
+        },
+        {
+          "src": "img/old-man-bubbly/Oldman3.jpg",
+          "type": "image",
+          "alt": "Oldman Bubbly game scene"
+        },
+        {
+          "src": "img/old-man-bubbly/Oldman4.jpg",
+          "type": "image",
+          "alt": "Oldman Bubbly game scene"
+        },
+        {
+          "src": "img/old-man-bubbly/Oldman5.jpg",
+          "type": "image",
+          "alt": "Oldman Bubbly game scene"
+        }
+      ],
+      "description": "A heartfelt point-and-click adventure made during a game jam. I developed the game and mentored three new teammates as players solve puzzles to help an elderly man recover treasured memories.",
+      "role": "Programming, design and mentorship",
+      "links": [
+        {
+          "label": "Play on itch.io",
+          "url": "https://pro-code-designer.itch.io/old-man-bubbly"
+        }
+      ]
+    },
+    {
+      "id": "monster-jam",
+      "group": "games",
+      "title": "Monster Jam",
+      "category": "Puzzle · Game design",
+      "image": "img/monster-jam/MonsterJam.webm",
+      "imageAlt": "Monster Jam gameplay trailer",
+      "gallery": [
+        {
+          "src": "img/monster-jam/MonsterJam.webm",
+          "type": "video",
+          "alt": "Monster Jam gameplay trailer"
+        },
+        {
+          "src": "img/monster-jam/MonsterJam1.jpg",
+          "type": "image",
+          "alt": "Monster Jam puzzle gameplay"
+        },
+        {
+          "src": "img/monster-jam/MonsterJam2.jpg",
+          "type": "image",
+          "alt": "Monster Jam puzzle gameplay"
+        }
+      ],
+      "description": "A puzzle-hybrid casual game inspired by color-matching mechanics: match monsters with doors of the same color. Playtesting helped refine the core puzzle and its feel.",
+      "role": "Game design",
+      "links": []
+    },
+    {
+      "id": "sweet-dreams",
+      "group": "games",
+      "title": "Sweet Dreams",
+      "category": "Survival · Game jam",
+      "image": "img/sweet-dreams/SweetDream.webm",
+      "imageAlt": "Sweet Dreams gameplay trailer",
+      "gallery": [
+        {
+          "src": "img/sweet-dreams/SweetDream.webm",
+          "type": "video",
+          "alt": "Sweet Dreams gameplay trailer"
+        },
+        {
+          "src": "img/sweet-dreams/SweetDream1.jpg",
+          "type": "image",
+          "alt": "Sweet Dreams nightmare scene"
+        },
+        {
+          "src": "img/sweet-dreams/SweetDream2.jpg",
+          "type": "image",
+          "alt": "Sweet Dreams game scene"
+        },
+        {
+          "src": "img/sweet-dreams/SweetDream3.jpg",
+          "type": "image",
+          "alt": "Sweet Dreams game scene"
+        },
+        {
+          "src": "img/sweet-dreams/SweetDream4.jpg",
+          "type": "image",
+          "alt": "Sweet Dreams game scene"
+        }
+      ],
+      "description": "A surreal survival game shifting between nightmares and happy dreams. Fight living toys with a flashlight, build confidence, then turn the tables and chase them. Created with two 3D artists and a sound designer; awarded second place at the Snappy Gurus Game Jam.",
+      "role": "Game programming and game design",
+      "featuredNote": "Second place at Snappy Gurus Game Jam",
+      "links": [
+        {
+          "label": "Play on itch.io",
+          "url": "https://rosbergen-designs.itch.io/sweet-dreams"
+        }
+      ]
+    },
+    {
+      "id": "procedural-city",
+      "group": "assets",
+      "title": "Procedural City & Oasis",
+      "category": "Unity asset · Procedural generation",
+      "image": "img/procedural-city/Dessert.jpg",
+      "imageAlt": "Procedural city and oasis environment",
+      "gallery": [
+        {
+          "src": "img/procedural-city/Dessert.jpg",
+          "type": "image",
+          "alt": "Procedural city and oasis environment"
+        },
+        {
+          "src": "img/procedural-city/OasisCity.jpg",
+          "type": "image",
+          "alt": "Wide view of the procedural oasis city"
+        },
+        {
+          "src": "img/procedural-city/Dessert.webm",
+          "type": "video",
+          "alt": "Procedural city and oasis environment turntable"
+        },
+        {
+          "src": "img/procedural-city/Dessert1.jpg",
+          "type": "image",
+          "alt": "Procedural environment detail"
+        },
+        {
+          "src": "img/procedural-city/Dessert2.jpg",
+          "type": "image",
+          "alt": "Procedural environment detail"
+        },
+        {
+          "src": "img/procedural-city/Dessert3.jpg",
+          "type": "image",
+          "alt": "Procedural environment detail"
+        }
+      ],
+      "description": "Collaborated with a 3D artist on a modular city and oasis asset. Built procedural generation scripts for varied environments and used Unity post-processing to improve visual fidelity.",
+      "role": "Procedural generation and Unity implementation",
+      "links": []
+    },
+    {
+      "id": "sci-fi-door-system",
+      "group": "assets",
+      "title": "Sci-Fi Door System",
+      "category": "Unity · Unreal Engine · Game asset",
+      "image": "img/sci-fi-door-system/DoorsTrailer.webm",
+      "imageAlt": "Sci-Fi Door Pack trailer",
+      "gallery": [
+        {
+          "src": "img/sci-fi-door-system/DoorsTrailer.webm",
+          "type": "video",
+          "alt": "Sci-Fi Door Pack trailer"
+        },
+        {
+          "src": "img/sci-fi-door-system/DoorsClip2.webm",
+          "type": "video",
+          "alt": "Floor hatch door opening"
+        },
+        {
+          "src": "img/sci-fi-door-system/DoorsClip3.webm",
+          "type": "video",
+          "alt": "Door unit close-up"
+        },
+        {
+          "src": "img/sci-fi-door-system/DoorsFeatures.jpg",
+          "type": "image",
+          "alt": "Door pack features: interaction prompt, passcode panel and corridor doors"
+        },
+        {
+          "src": "img/sci-fi-door-system/DoorsKit.jpg",
+          "type": "image",
+          "alt": "Everything included in the door pack"
+        },
+        {
+          "src": "img/sci-fi-door-system/DoorsVariants.jpg",
+          "type": "image",
+          "alt": "Color variants of the round hatch door"
+        },
+        {
+          "src": "img/sci-fi-door-system/Doors1.jpg",
+          "type": "image",
+          "alt": "Sci-Fi double door in a corridor"
+        },
+        {
+          "src": "img/sci-fi-door-system/Doors2.jpg",
+          "type": "image",
+          "alt": "Round sci-fi hatch door"
+        }
+      ],
+      "description": "A customizable door system developed for Unity and Unreal Engine, with keycard access, passcode entry and animation controls.",
+      "role": "Game asset programming",
+      "links": []
+    },
+    {
+      "id": "tower-jump",
+      "group": "assets",
+      "title": "Tower Jump",
+      "category": "Hyper-casual · Unity asset",
+      "image": "img/tower-jump/TowerJump1.jpg",
+      "imageAlt": "Tower Jump hyper-casual game",
+      "gallery": [
+        {
+          "src": "img/tower-jump/TowerJump.webm",
+          "type": "video",
+          "alt": "Tower Jump gameplay trailer"
+        },
+        {
+          "src": "img/tower-jump/TowerJump1.jpg",
+          "type": "image",
+          "alt": "Tower Jump game screenshot"
+        },
+        {
+          "src": "img/tower-jump/TowerJump2.jpg",
+          "type": "image",
+          "alt": "Tower Jump game screenshot"
+        }
+      ],
+      "description": "A hyper-casual game template with procedurally generated 3D meshes, dynamic obstacles and configurable parameters. The first version reached more than 800 downloads.",
+      "role": "Game programming and procedural mesh generation",
+      "links": [
+        {
+          "label": "Unity Asset Store",
+          "url": "https://assetstore.unity.com/packages/templates/packs/tower-jump-295773"
+        }
+      ]
+    },
+    {
+      "id": "water-simulation",
+      "group": "assets",
+      "title": "Water Simulation",
+      "category": "Unity · Simulation asset",
+      "image": "img/water-simulation/Water.webm",
+      "imageAlt": "Water reacting to a nearby object, one example of the proximity simulation asset",
+      "gallery": [
+        {
+          "src": "img/water-simulation/Water.webm",
+          "type": "video",
+          "alt": "Water reacting to a nearby object, one example of the proximity simulation asset"
+        }
+      ],
+      "description": "A Unity asset for simulations driven by proximity: surfaces react to the objects moving near them, inspired by Blender Geometry Nodes. The water shown here is one example of what it can drive.",
+      "role": "Asset programming and simulation",
+      "links": []
+    },
+    {
+      "id": "railbound-case-study",
+      "group": "case-studies",
+      "title": "Railbound Tutorial Design",
+      "category": "Game design case study · Level design",
+      "image": "img/railbound-case-study/Railbound.jpg",
+      "imageAlt": "Annotated Railbound level 1 gameplay capture",
+      "gallery": [
+        {
+          "src": "img/railbound-case-study/Railbound.jpg",
+          "type": "image",
+          "alt": "Annotated Railbound level 1 gameplay capture"
+        }
+      ],
+      "description": "A game design case study of how Railbound's first tutorial level teaches its interaction language through constrained puzzles, visual demonstration, partial guidance and consistent directional cues.",
+      "role": "Game design research and analysis",
+      "links": [
+        {
+          "label": "Read the case study",
+          "url": "CaseStudies/Railbound/Railbound_Level_1_Case_Study.html"
+        }
+      ]
+    },
+    {
+      "id": "from-gamer-to-designer",
+      "group": "teaching",
+      "title": "From Gamer to Designer",
+      "category": "MahfeleBazi · In-person event",
+      "image": "img/from-gamer-to-designer/MahfeleBaziGroup.jpg",
+      "imageAlt": "Group photo of the From Gamer to Designer event attendees",
+      "gallery": [
+        {
+          "src": "img/from-gamer-to-designer/MahfeleBaziTeaser.webm",
+          "type": "video",
+          "alt": "From Gamer to Designer event teaser"
+        },
+        {
+          "src": "img/from-gamer-to-designer/MahfeleBaziGroup.jpg",
+          "type": "image",
+          "alt": "Group photo of the From Gamer to Designer event attendees"
+        },
+        {
+          "src": "img/from-gamer-to-designer/MahfeleBaziEvent.webm",
+          "type": "video",
+          "alt": "Footage from the From Gamer to Designer event"
+        }
+      ],
+      "description": "A MahfeleBazi in-person event for players who want to take the step from playing games to designing them.",
+      "role": "Founder, organizer and game design instructor",
+      "links": []
+    },
+    {
+      "id": "ubuntu-event",
+      "group": "teaching",
+      "title": "Ubuntu",
+      "category": "MahfeleBazi · Interactive experience-sharing event",
+      "image": "img/ubuntu-event/Ubuntu1.jpg",
+      "imageAlt": "Group photo of the Ubuntu event attendees",
+      "gallery": [
+        {
+          "src": "img/ubuntu-event/Ubuntu1.jpg",
+          "type": "image",
+          "alt": "Group photo of the Ubuntu event attendees"
+        },
+        {
+          "src": "img/ubuntu-event/Ubuntu2.jpg",
+          "type": "image",
+          "alt": "A speaker sharing their story at the Ubuntu event"
+        },
+        {
+          "src": "img/ubuntu-event/Ubuntu3.jpg",
+          "type": "image",
+          "alt": "Moments from the Ubuntu event"
+        },
+        {
+          "src": "img/ubuntu-event/Ubuntu4.jpg",
+          "type": "image",
+          "alt": "Moments from the Ubuntu event"
+        },
+        {
+          "src": "img/ubuntu-event/Ubuntu5.jpg",
+          "type": "image",
+          "alt": "Moments from the Ubuntu event"
+        },
+        {
+          "src": "img/ubuntu-event/Ubuntu6.jpg",
+          "type": "image",
+          "alt": "Moments from the Ubuntu event"
+        },
+        {
+          "src": "img/ubuntu-event/Ubuntu7.jpg",
+          "type": "image",
+          "alt": "Moments from the Ubuntu event"
+        }
+      ],
+      "description": "An interactive experience-sharing event built around Ubuntu, the idea that “I am because we are”. People in games came together to share their stories and learn from each other’s paths.",
+      "role": "Founder, organizer and game design instructor",
+      "links": []
+    },
+    {
+      "id": "gambate-event",
+      "group": "teaching",
+      "title": "Gambate",
+      "category": "MahfeleBazi · Interactive experience-sharing event",
+      "image": "img/gambate-event/Gambate1.jpg",
+      "imageAlt": "Speaker with an attendee at the Gambate event",
+      "gallery": [
+        {
+          "src": "img/gambate-event/Gambate1.jpg",
+          "type": "image",
+          "alt": "A speaker with attendees at the Gambate event"
+        },
+        {
+          "src": "img/gambate-event/Gambate2.jpg",
+          "type": "image",
+          "alt": "Group photo of the Gambate event attendees"
+        },
+        {
+          "src": "img/gambate-event/Gambate3.jpg",
+          "type": "image",
+          "alt": "Moments from the Gambate event"
+        },
+        {
+          "src": "img/gambate-event/Gambate4.jpg",
+          "type": "image",
+          "alt": "Moments from the Gambate event"
+        },
+        {
+          "src": "img/gambate-event/Gambate5.jpg",
+          "type": "image",
+          "alt": "Moments from the Gambate event"
+        },
+        {
+          "src": "img/gambate-event/Gambate6.jpg",
+          "type": "image",
+          "alt": "Moments from the Gambate event"
+        }
+      ],
+      "description": "An interactive experience-sharing event about pushing through: speakers and attendees opened up about the setbacks, efforts and small wins behind their work in games.",
+      "role": "Founder, organizer and game design instructor",
+      "links": []
+    },
+    {
+      "id": "food-war-event",
+      "group": "teaching",
+      "title": "Food War",
+      "category": "MahfeleBazi · Interactive role-playing event",
+      "image": "img/food-war-event/FoodWar1.jpg",
+      "imageAlt": "A masked team strategizing at the table during Food War",
+      "gallery": [
+        {
+          "src": "img/food-war-event/FoodWar1.jpg",
+          "type": "image",
+          "alt": "A masked team strategizing at the table during Food War"
+        },
+        {
+          "src": "img/food-war-event/FoodWar2.jpg",
+          "type": "image",
+          "alt": "Hosting Food War in front of the audience"
+        },
+        {
+          "src": "img/food-war-event/FoodWar3.jpg",
+          "type": "image",
+          "alt": "Group photo of the Food War players and audience"
+        },
+        {
+          "src": "img/food-war-event/FoodWar4.jpg",
+          "type": "image",
+          "alt": "The audience helping the teams during Food War"
+        }
+      ],
+      "description": "An interactive event where everyone in the room had a role. Ten main players split into two teams of five and competed on marketing and PR strategy, with the rest of the audience joining in to advise and sway each team.",
+      "role": "Founder, organizer and game design instructor",
+      "links": []
+    },
+    {
+      "id": "pillars-animation",
+      "group": "pixel-animations",
+      "title": "Pillars",
+      "category": "Pixel art · Animation",
+      "image": "img/pillars-animation/PillarDisco.gif",
+      "imageAlt": "Animated pixel art pillars",
+      "mediaBackground": "#efe9dc",
+      "gallery": [
+        {
+          "src": "img/pillars-animation/PillarDisco.gif",
+          "type": "image",
+          "alt": "Animated pixel art pillars"
+        }
+      ],
+      "description": "An animated pixel art pillar set with glowing details, made for a game environment.",
+      "role": "Pixel art and animation",
+      "links": []
+    },
+    {
+      "id": "smoke-lover-animation",
+      "group": "pixel-animations",
+      "title": "Smoke Lover",
+      "category": "Pixel art · Animation",
+      "image": "img/smoke-lover-animation/SmokeLover1.gif",
+      "imageAlt": "Smoke Lover idle animation",
+      "mediaBackground": "#efe9dc",
+      "gallery": [
+        {
+          "src": "img/smoke-lover-animation/SmokeLover1.gif",
+          "type": "image",
+          "alt": "Smoke Lover idle animation"
+        },
+        {
+          "src": "img/smoke-lover-animation/SmokeLover2.gif",
+          "type": "image",
+          "alt": "Smoke Lover, second animation"
+        },
+        {
+          "src": "img/smoke-lover-animation/SmokeLoverTyphoon.gif",
+          "type": "image",
+          "alt": "Smoke Lover typhoon animation"
+        }
+      ],
+      "description": "A gas-mask character that trails clouds of smoke, animated in pixel art.",
+      "role": "Pixel art and animation",
+      "links": []
+    },
+    {
+      "id": "hell-dog-animation",
+      "group": "pixel-animations",
+      "title": "Hell Dog",
+      "category": "Pixel art · Animation",
+      "image": "img/hell-dog-animation/HellDogBlue1.gif",
+      "imageAlt": "Hell Dog animation",
+      "mediaBackground": "#efe9dc",
+      "gallery": [
+        {
+          "src": "img/hell-dog-animation/HellDogBlue1.gif",
+          "type": "image",
+          "alt": "Hell Dog animation"
+        },
+        {
+          "src": "img/hell-dog-animation/HellDogBlue2.gif",
+          "type": "image",
+          "alt": "Hell Dog, second animation"
+        }
+      ],
+      "description": "A skull-headed character with a blue flame, animated in pixel art.",
+      "role": "Pixel art and animation",
+      "links": []
+    },
+    {
+      "id": "dino-bot-animation",
+      "group": "pixel-animations",
+      "title": "Dino Bot",
+      "category": "Pixel art · Animation",
+      "image": "img/dino-bot-animation/DinoBot1.gif",
+      "imageAlt": "Dino Bot animation",
+      "mediaBackground": "#efe9dc",
+      "gallery": [
+        {
+          "src": "img/dino-bot-animation/DinoBot1.gif",
+          "type": "image",
+          "alt": "Dino Bot animation"
+        },
+        {
+          "src": "img/dino-bot-animation/DinoBot2.gif",
+          "type": "image",
+          "alt": "Dino Bot, second animation"
+        }
+      ],
+      "description": "A small dino robot, animated in pixel art. The first take is the main animation.",
+      "role": "Pixel art and animation",
+      "links": []
+    },
+    {
+      "id": "red-robot",
+      "aliases": [
+        "red-robot-art"
+      ],
+      "group": "character-design",
+      "title": "Red Robot",
+      "category": "Pixel art · Character design",
+      "image": "img/red-robot/RedRobot.png",
+      "imageAlt": "Red Robot pixel art character",
+      "gallery": [
+        {
+          "src": "img/red-robot/RedRobot.png",
+          "type": "image",
+          "alt": "Red Robot"
+        }
+      ],
+      "description": "A red combat robot designed in pixel art.",
+      "role": "Pixel art and character design",
+      "links": [],
+      "mediaBackground": "#6d6f67"
+    },
+    {
+      "id": "bushmonster",
+      "aliases": [
+        "bushmonster-art"
+      ],
+      "group": "character-design",
+      "title": "Bushmonster",
+      "category": "Pixel art · Character design",
+      "image": "img/bushmonster/Bushmonster.png",
+      "imageAlt": "Bushmonster pixel art character",
+      "gallery": [
+        {
+          "src": "img/bushmonster/Bushmonster.png",
+          "type": "image",
+          "alt": "Bushmonster"
+        }
+      ],
+      "description": "A moss-covered bush monster designed in pixel art.",
+      "role": "Pixel art and character design",
+      "links": [],
+      "mediaBackground": "#f8ebb7"
+    },
+    {
+      "id": "space-penguin",
+      "aliases": [
+        "space-penguin-art"
+      ],
+      "group": "character-design",
+      "title": "Space Penguin",
+      "category": "Pixel art · Character design",
+      "image": "img/space-penguin/Space-Penguin.png",
+      "imageAlt": "Space Penguin pixel art character",
+      "gallery": [
+        {
+          "src": "img/space-penguin/Space-Penguin.png",
+          "type": "image",
+          "alt": "Space Penguin"
+        }
+      ],
+      "description": "A space penguin in a suit and helmet, designed in pixel art.",
+      "role": "Pixel art and character design",
+      "links": [],
+      "mediaBackground": "#6d6f67"
+    },
+    {
+      "id": "cool-robo",
+      "aliases": [],
+      "group": "character-design",
+      "title": "Cool Robo",
+      "category": "Pixel art · Character design",
+      "image": "img/cool-robo/CoolRobo.png",
+      "imageAlt": "Cool Robo pixel art character",
+      "gallery": [
+        {
+          "src": "img/cool-robo/CoolRobo.png",
+          "type": "image",
+          "alt": "Cool Robo"
+        }
+      ],
+      "description": "A cool robot character designed in pixel art.",
+      "role": "Pixel art and character design",
+      "links": [],
+      "mediaBackground": "#0f7b7b"
+    },
+    {
+      "id": "monster-fox",
+      "aliases": [],
+      "group": "character-design",
+      "title": "Monster Fox",
+      "category": "Pixel art · Character design",
+      "image": "img/monster-fox/MonsterFox.png",
+      "imageAlt": "Monster Fox pixel art character",
+      "gallery": [
+        {
+          "src": "img/monster-fox/MonsterFox.png",
+          "type": "image",
+          "alt": "Monster Fox"
+        }
+      ],
+      "description": "A monster fox character designed in pixel art.",
+      "role": "Pixel art and character design",
+      "links": [],
+      "mediaBackground": "#7d7d7d"
+    },
+    {
+      "id": "space-art",
+      "group": "art",
+      "title": "Space",
+      "category": "Art · Illustration",
+      "image": "img/space-art/Space.jpg",
+      "imageAlt": "A beam of light falling through a glowing ring in space",
+      "gallery": [
+        {
+          "src": "img/space-art/Space.jpg",
+          "type": "image",
+          "alt": "A beam of light falling through a glowing ring in space"
+        }
+      ],
+      "description": "A minimal black-and-white space illustration: a beam of light falling through a glowing ring.",
+      "role": "Illustration",
+      "links": []
+    },
+    {
+      "id": "secret-project-art",
+      "group": "art",
+      "title": "Secret Project",
+      "category": "Illustration · Game design",
+      "image": "img/secret-project-art/ninja.png",
+      "imageAlt": "Ninja illustration for a secret project",
+      "gallery": [
+        {
+          "src": "img/secret-project-art/ninja.png",
+          "type": "image",
+          "alt": "Ninja illustration for a secret project"
+        }
+      ],
+      "description": "A visual and game design exploration kept under wraps.",
+      "role": "Illustration and game design",
+      "links": []
+    },
+    {
+      "id": "ninja-3d",
+      "group": "art",
+      "title": "Ninja 3D",
+      "category": "3D · Animation and rendering",
+      "image": "img/ninja-3d/NinjaCamShake.webm",
+      "imageAlt": "A small ninja facing a giant eye in a dark 3D world",
+      "gallery": [
+        {
+          "src": "img/ninja-3d/NinjaCamShake.webm",
+          "type": "video",
+          "alt": "Ninja facing the giant eye, with camera shake"
+        },
+        {
+          "src": "img/ninja-3d/NinjaBaray.webm",
+          "type": "video",
+          "alt": "Ninja walking toward the giant eye"
+        },
+        {
+          "src": "img/ninja-3d/NinjaTestRender.webm",
+          "type": "video",
+          "alt": "Test render of the ninja scene"
+        }
+      ],
+      "description": "3D renders and animation tests of a small ninja facing a giant eye in a dark world.",
+      "role": "3D animation and rendering",
+      "links": []
+    }
+  ],
+  "experience": [
+    {
+      "dates": "Mar 2025–Present",
+      "title": "Game Designer / Prototype Developer",
+      "company": "Voodoo",
+      "details": [
+        "+12% retention, longer sessions: designed and built a dynamic difficulty system for LiveOps. The lift averaged 12% across D1 to D30, highest at D1.",
+        "CPI cut from $8.50 to $0.95: used A/B tests and GameAnalytics campaign data to find the visual changes that drove the drop.",
+        "Selected for Voodoo's publishing program: passed a portfolio review, then created multiple hybrid-casual prototypes and ran them through Voodoo's market tests."
+      ]
+    },
+    {
+      "dates": "Nov 2025–Present",
+      "title": "Founder and Game Design Instructor",
+      "company": "MahfeleBazi Game Design Academy",
+      "details": [
+        "About 120 attendees per event: a workshop every 3 months and 1 to 2 game jams a year. 5 events so far.",
+        "35-person board game workshop and jam: teach game design hands-on through workshops and jams."
+      ]
+    },
+    {
+      "dates": "Mar 2022–Mar 2025",
+      "title": "Game Designer, Developer and Team Lead",
+      "company": "Dancing Div Studio",
+      "details": [
+        "4 games shipped: sole designer and programmer, leading a 4-person team (2 artists, 1 sound designer).",
+        "2,000+ downloads of game assets released on marketplaces."
+      ]
+    },
+    {
+      "dates": "Jan 2019–Jan 2025",
+      "title": "Freelance and Contract Developer",
+      "company": "Enigma Studio and independent clients",
+      "details": [
+        "10+ client projects: delivered games and AAA Unreal Marketplace assets."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "dates": "Sep 2024–Present",
+      "title": "M.Sc. Computer Science (Algorithms)",
+      "institution": "Shahid Beheshti University"
+    },
+    {
+      "dates": "Sep 2018–Jul 2023",
+      "title": "B.Sc. Computer Engineering",
+      "institution": "Imam Khomeini International University"
+    }
+  ]
+}
