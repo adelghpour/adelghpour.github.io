@@ -71,6 +71,12 @@ a { color: inherit; }
 .loader[hidden] { display: none; }
 .loader .bar { width: min(280px, 60vw); height: 2px; background: var(--line); margin: 0 auto; overflow: hidden; }
 .loader .bar i { display: block; height: 100%; width: 0%; background: var(--red); box-shadow: 0 0 12px var(--red); }
+.loader-skip { display: grid; justify-items: center; gap: 12px; margin-top: 18px; opacity: 0; transform: translateY(6px); transition: opacity .4s ease, transform .4s ease; }
+.loader-skip.is-shown { opacity: 1; transform: none; }
+.loader-skip[hidden] { display: none; }
+.loader-skip button { min-height: 44px; padding: 0 20px; border: 1px solid rgba(233,228,220,.35); border-radius: 999px; background: transparent; color: var(--fg); font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, background .2s; }
+.loader-skip button:hover, .loader-skip button:focus-visible { border-color: var(--red); background: rgba(255,45,32,.1); outline: none; }
+.loader-skip p { margin: 0; max-width: 30ch; font: 400 12px/1.5 var(--body, sans-serif); letter-spacing: 0; text-transform: none; color: var(--mute); }
 
 /* ---------- scene ---------- */
 #scene { position: relative; height: 460vh; }
@@ -314,6 +320,10 @@ img[src$=".gif"] { image-rendering: pixelated; }
   <div>Loading render</div>
   <div class="bar"><i id="loadbar"></i></div>
   <div id="loadtxt">000 / 142</div>
+  <div class="loader-skip" id="loadskip" hidden>
+    <button type="button" id="loadskip-btn">Continue now</button>
+    <p>The site is still loading. The intro animation may look choppy until it finishes.</p>
+  </div>
 </div>
 
 <header class="nav">
@@ -632,6 +642,7 @@ img[src$=".gif"] { image-rendering: pixelated; }
   }
   function start() {
     if (started) return; started = true;
+    document.documentElement.style.overflow = '';
     resize(); placeTicks();
     if (location.hash === '#about') { // #about lives inside the pinned scene, so the native jump lands on stage 1
       var top = scene.getBoundingClientRect().top + window.scrollY;
@@ -647,10 +658,12 @@ img[src$=".gif"] { image-rendering: pixelated; }
     if (hash === 'work' || hash === 'contact') setTimeout(function () { go(hash); }, 60);
   }
 
-  /* ---------- progressive frame loading ----------
-     Load the frame for the current scroll position first and start as soon as it
-     arrives. The rest stream in coarse-to-fine (every 32nd, 16th, 8th... frame), so
-     scrubbing works right away and gets smoother as more frames land. */
+  /* ---------- frame loading ----------
+     The loading screen stays up until every intro frame has arrived, so the scroll
+     animation is smooth from the first move. Frames stream in coarse-to-fine (every
+     32nd, 16th, 8th... frame). After a moment a "Continue now" button appears for
+     anyone who'd rather not wait; the rest keeps loading in the background. Links
+     straight to the work or contact sections skip the wait. */
   var MAX_ACTIVE = 6, active = 0, queue = [], queued = new Array(FRAMES);
   function enqueue(i) { if (i >= 0 && i < FRAMES && !queued[i]) { queued[i] = true; queue.push(i); } }
   enqueue(Math.round(frameAt(sceneProgress())));
@@ -663,7 +676,8 @@ img[src$=".gif"] { image-rendering: pixelated; }
     ready[i] = ok && imgs[i].naturalWidth > 0;
     $('loadbar').style.width = (loaded / FRAMES * 100) + '%';
     $('loadtxt').textContent = pad(loaded, 3) + ' / ' + FRAMES;
-    if (i === firstFrame) start();
+    if (loaded >= FRAMES) start();
+    else if (i === firstFrame && skipWait) start();
     if (ready[i]) needsDraw = true; // a closer frame may have arrived
     pump();
   }
@@ -678,8 +692,16 @@ img[src$=".gif"] { image-rendering: pixelated; }
     }
   }
   window.addEventListener('resize', function () { resize(); placeTicks(); if (hasGsap) ScrollTrigger.refresh(); });
+  var skipWait = /[?&]folder=/.test(location.search) || /^#(work|contact)$/.test(location.hash);
+  if (!skipWait) document.documentElement.style.overflow = 'hidden'; // no scrolling under the loader
   pump();
-  setTimeout(start, 6000); // a stalled first request never leaves the loader up
+  setTimeout(function () { // offer a way in if loading takes a while
+    if (started) return;
+    var box = $('loadskip'); box.hidden = false;
+    requestAnimationFrame(function () { box.classList.add('is-shown'); });
+  }, 1500);
+  $('loadskip-btn').addEventListener('click', function () { if (ready[firstFrame] || loaded > 0) start(); else setTimeout(start, 400); });
+  setTimeout(start, 30000); // never leave the loader up forever
 })();
 </script>
 
